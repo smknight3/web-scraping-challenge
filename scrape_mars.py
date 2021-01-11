@@ -43,6 +43,9 @@ def scrape():
 
     df = tables[0]
 
+    df=df.reset_index()
+    df=df.drop(['index'],axis=1)
+
     html_table = df.to_html()
     print(html_table)
 
