@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NASA News</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <div class="jumbotron text-center">
+            <h1>NASA News</h1>
+            <p>Refresh for the latest deets!</p>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+        </div>
+
+        <div class="container">
+            <div class="jumbotron text-center">
+                <h1 class="display-4">The Latest</h1>
+                <p class="lead"></p>
+                <hr class="my-4">
+                <h2 class="display-4">{{ mars.news_title }}</h2>
+                <p class="lead"></p>
+                <hr class="my-4">
+                <p>{{ mars.news_paragraph }}</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        {% for image in mars.hemisphere_images %}
+                        <img src="{{image.img_url}}" width="200" height="200" /> {% endfor %} </div>
+                    <div class="caption">
+                        <h3>{% for image in mars.hemisphere_images %} {{image.title}} {% endfor %} </div>
+                    </h3>
+                </div>
+                <div class="col-md-8">
+                    <div class="thumbnail">
+                        <img src=" {{mars.imglink}} " />
+                    </div>
+                    <div class="thumbnail">
+                        <h3>Table Data</h3>
+                        {{mars.htmltable|safe}}
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class='col-md-3'>
+                    <img src=" {{mars.imglink}} " />
+                </div>
+
+                <div class='col-lg-6'>
+                    <p>Spicy jalapeno bacon ipsum dolor amet doner ham meatball bresaola capicola chuck beef spare ribs. Tail shank kielbasa sausage short loin, pork chop biltong beef ball tip. Chuck tail venison chicken. Flank capicola fatback cow, ground
+                        round filet mignon spare ribs boudin short loin alcatra burgdoggen doner beef. Pig kevin venison pancetta, t-bone buffalo capicola picanha jowl cow short ribs drumstick pastrami tongue.</p>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+        <div>
+        </div>
+        <div>
+            {% for image in mars.hemisphere_images %}
+            <img src="{{image.img_url}}" width="200" height="200" /> {% endfor %}
+        </div>
+        <div>
+            <img src=" {{mars.imglink}} " />
+        </div>
+</body>
+
+</html>
